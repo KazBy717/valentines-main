@@ -90,18 +90,18 @@ export default function PhotoPairGame({
     }
   }, [matched, handleShowProposal]);
 
-  const solveGame = () => {
-    setMatched(images.map((_, index) => index));
-  };
+  // const solveGame = () => {
+  //   setMatched(images.map((_, index) => index));
+  // };
 
   return (
     <div>
-      <button
+      {/* <button
         onClick={solveGame}
         className="mb-4 px-4 py-2 bg-blue-500 text-white rounded"
       >
         Solve Game
-      </button>
+      </button> */}
       <div className="grid grid-cols-9 gap-2">
         {/* Image preload */}
         <div className="hidden">
