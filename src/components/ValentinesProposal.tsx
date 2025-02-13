@@ -74,13 +74,6 @@ export default function ValentinesProposal() {
     }
   }, [step]);
 
-  useEffect(() => {
-    const audio = new Audio("/audio/valentine.mp3");
-    audio.play().catch((error) => {
-      console.error("Error playing audio:", error);
-    });
-  }, []);
-
   const handleYesClick = () => {
     setShowFireworks(true);
     setStep(3);
@@ -90,16 +83,22 @@ export default function ValentinesProposal() {
     <div className="flex flex-col items-center justify-center h-full">
       <AnimatePresence mode="wait">
         {step === 0 && (
-          <motion.h2
-            key="step-0"
-            className={`text-4xl font-semibold mb-4 ${playfairDisplay.className}`}
-            transition={{ duration: 1 }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            Congratulations! You have completed the game.
-          </motion.h2>
+          <>
+            <motion.h2
+              key="step-0"
+              className={`text-4xl font-semibold mb-4 ${playfairDisplay.className}`}
+              transition={{ duration: 1 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              Congratulations! You have completed the game.
+            </motion.h2>
+            <audio autoPlay>
+              <source src="/audio/valentine.mp3" type="audio/mpeg" />
+              Your browser does not support the audio element.
+            </audio>
+          </>
         )}
         {step === 1 && (
           <motion.h2
