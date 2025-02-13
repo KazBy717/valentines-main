@@ -9,6 +9,9 @@ const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
 });
 
+const audio = new Audio("/valentine.mp3");
+
+
 // 36 images
 const images = [
   "/game-photos/1.avif",
@@ -64,6 +67,9 @@ export default function ValentinesProposal() {
   };
 
   useEffect(() => {
+    if(step ==1 ){
+      audio.play()
+    }
     if (step < 2) {
       // Change step after 5 seconds
       const timer = setTimeout(() => {
@@ -73,7 +79,6 @@ export default function ValentinesProposal() {
       return () => clearTimeout(timer);
     }
   }, [step]);
-
   const handleYesClick = () => {
     setShowFireworks(true);
     setStep(3);
@@ -94,10 +99,6 @@ export default function ValentinesProposal() {
             >
               Congratulations! You have completed the game.
             </motion.h2>
-            <audio autoPlay>
-              <source src="/audio/valentine.mp3" type="audio/mpeg" />
-              Your browser does not support the audio element.
-            </audio>
           </>
         )}
         {step === 1 && (
