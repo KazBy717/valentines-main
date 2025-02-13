@@ -69,10 +69,15 @@ export default function ValentinesProposal() {
       const timer = setTimeout(() => {
         setStep((prevStep) => prevStep + 1);
       }, 5000);
-
+  
       return () => clearTimeout(timer);
     }
   }, [step]);
+
+  useEffect(() => {
+    const audio = new Audio("/audio/valentine.mp3");
+    audio.play();
+  }, []);
 
   const handleYesClick = () => {
     setShowFireworks(true);
