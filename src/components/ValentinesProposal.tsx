@@ -9,7 +9,6 @@ const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
 });
 
-const audio = new Audio("/valentine.mp3");
 
 
 // 36 images
@@ -53,6 +52,7 @@ const images = [
 ];
 
 export default function ValentinesProposal() {
+  const audio = new Audio("/valentine.mp3");
   const [step, setStep] = useState(0);
   const [position, setPosition] = useState<{
     top: string;
